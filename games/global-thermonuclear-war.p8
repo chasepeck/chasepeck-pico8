@@ -35,22 +35,30 @@ function _update()
 end
 function _draw()
 	cls()
+	
 	if(game_state==0)then
-		color(1)
-		print("global thermonuclear war",15,40+sin(time())*2+1)
+		camx=30-sin(time()/10)*25
+		
+		map(0,0,0,0,25,30)
+		camera(camx,camy)
+	
+		color(0)
+		rectfill(36+camx,78+camy,86+camx,92+camy,0)
+		rectfill(0+camx,120+camy,128+camx,128+camy,0)
+		print("global thermonuclear war",15+camx,40+sin(time())*2+1+camy)
 		color(8)
-		print("global thermonuclear war",15,40+sin(time())*2)
+		print("global thermonuclear war",15+camx,40+sin(time())*2+camy)
 		color(14)
-		print("🅾️: 1 player\n❎: 2 player",38,80)
+		print("🅾️: 1 player\n❎: 2 player",38+camx,80+camy)
 		color(1)
-		print("2021 organic games llc",0,122)
+		print("2021 organic games llc",0+camx,122+camy)
 	elseif(game_state==1)then
 		draw_game()
 	elseif(game_state==2)then
 		draw_menu()
 	end
 end
-
+-->8
 //other functions
 function playmusic(mus)
 	if(enable_mus)music(mus)
@@ -62,7 +70,7 @@ function check_table_contains(table,value)
 	end
 	return false
 end
-
+-->8
 //game
 function start_game()
 	game_state=1
@@ -110,8 +118,7 @@ function start_game()
 	for i=1,count(cities) do
 		pop[i]=cities[i][4]
 	end
-	
-	mset(cities[1][1],cities[1][2],3)
+
 end
 function update_game()
 
@@ -156,9 +163,35 @@ function update_game()
 		end
 		if(btnp(❎) and not choose)then
 			if(select_mode==1)then
-				if(check_table_contains(p1_data.ctrl,slct))then
+				if(check_table_contains(p1_data.ctrl,slct)
+				and not check_table_contains(p1_data.silos,slct)
+				and not check_table_contains(p1_data.bases,slct)
+				and not check_table_contains(p1_data.radars,slct))then
 					add(p1_data.silos,slct)
 					sfx(61)
+					sfx(55)
+					select_mode=0
+					select_prompt=false
+				else sfx(56) end
+			elseif(select_mode==2)then
+				if(check_table_contains(p1_data.ctrl,slct)
+				and not check_table_contains(p1_data.bases,slct)
+				and not check_table_contains(p1_data.silos,slct)
+				and not check_table_contains(p1_data.radars,slct))then
+					add(p1_data.bases,slct)
+					sfx(61)
+					sfx(55)
+					select_mode=0
+					select_prompt=false
+				else sfx(56) end
+			elseif(select_mode==3)then
+				if(check_table_contains(p1_data.ctrl,slct)
+				and not check_table_contains(p1_data.radars,slct)
+				and not check_table_contains(p1_data.silos,slct)
+				and not check_table_contains(p1_data.bases,slct))then
+					add(p1_data.radars,slct)
+					sfx(61)
+					sfx(55)
 					select_mode=0
 					select_prompt=false
 				else sfx(56) end
@@ -177,26 +210,18 @@ function update_game()
 	
 	//controlled cities
 	for i=1,count(p1_data.ctrl) do
-		if not(slct==p1_data.ctrl[i])then
-			mset(cities[p1_data.ctrl[i]][1],cities[p1_data.ctrl[i]][2],4)
-		end
+		mset(cities[p1_data.ctrl[i]][1],cities[p1_data.ctrl[i]][2],4)
 	end
 	
 	//silos, bases, radars
 	for i=1,count(p1_data.silos)do
-		if not(slct==p1_data.silos[i])then
-			mset(cities[p1_data.silos[i]][1],cities[p1_data.ctrl[i]][2],10)
-		end
+		mset(cities[p1_data.silos[i]][1],cities[p1_data.ctrl[i]][2],10)
 	end
 	for i=1,count(p1_data.bases)do
-		if not(slct==p1_data.bases[i])then
-			mset(cities[p1_data.bases[i]][1],cities[p1_data.ctrl[i]][2],9)
-		end
+		mset(cities[p1_data.bases[i]][1],cities[p1_data.ctrl[i]][2],9)
 	end
 	for i=1,count(p1_data.radars)do
-		if not(slct==p1_data.radars[i])then
-			mset(cities[p1_data.radars[i]][1],cities[p1_data.ctrl[i]][2],11)
-		end
+		mset(cities[p1_data.radars[i]][1],cities[p1_data.ctrl[i]][2],11)
 	end
 		
 
@@ -268,19 +293,32 @@ function draw_game()
 			print("choose silo build location",0+camx,0+camy)
 		end
 	end
+	
+		//error messages
+	if(select_mode>0 and select_mode<4)then
+		if not(check_table_contains(p1_data.ctrl,slct))then
+			print("\#8\f0must be a city you control\*z ",0+camx,116+camy)
+		end
+		if(check_table_contains(p1_data.silos,slct)
+		or check_table_contains(p1_data.bases,slct)
+		or check_table_contains(p1_data.radars,slct))then
+			print("\#8\f0only one structure per city\*z ",0+camx,116+camy)
+		end
+	end
 end
-
+-->8
 //menu
-
 function init_menu()
 	menuselected=1
 end
+
 function update_menu()
 	if(btnp(🅾️))then
 		sfx(59)
 		game_state=1
 	end
 end
+
 function draw_menu()
 
 	local menuitems={
@@ -437,13 +475,13 @@ c1050020282102621026210282102621028210262102821026210282102621028210262102621028
 001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+311000002662526625266250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 011000000025500303000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 011300000e75300003000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 0104000026053240500c0500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 010b000018153101440e1300c12500004000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 010b0000241530c1440e1301012500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-190600000c77328750267402873026720287152670026700267002870026700287002670028700267002870026700287002670500700007000070000700007000070000700007000070000700007000070000700
+190600001815328750267402873026720287152670026700267002870026700287002670028700267002870026700287002670500700007000070000700007000070000700007000070000700007000070000700
 010200001155500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 010a00000c053181551a1550030000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 __music__
