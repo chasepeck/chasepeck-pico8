@@ -74,14 +74,14 @@ function _update()
 			tick=0
 			stage_tick+=1
 		end
-		if(stage_tick==20)then
+		if(stage_tick==50)then
 			music(-1)
 			for i=1,100 do
-				print("\a")
+				print("\ac"..rnd(1)+1)
 			end
 			cls()
 			color(8)
-			print("😐\nmade by chase peck")
+			print("∧ demoing.p8 ∧\nmade by chase peck")
 			stop()
 		end
 	end
