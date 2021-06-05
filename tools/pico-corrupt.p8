@@ -1,8 +1,8 @@
 pico-8 cartridge // http://www.pico-8.com
 version 32
 __lua__
-reload(0x0,0x0,0x42ff,"/global-thermonuclear-war.p8")
-#include /global-thermonuclear-war.p8
+reload(0x0,0x0,0x42ff,"pico-corrupt.p8")
+#include pico-corrupt.p8
 
 srand(stat(95))
 
