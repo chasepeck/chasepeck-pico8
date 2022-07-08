@@ -1,24 +1,46 @@
 pico-8 cartridge // http://www.pico-8.com
-version 32
+version 35
 __lua__
 function _init()
 	alphabet={
-	"a",
-	"b",
-	"c",
-	"d",
-	"e",
-	"f",
-	"g"}
-	for i=0,10 do
-		print("\a"..alphabet[loopover(3+i*2,#alphabet)].."1")
+		"c1",
+		"d1",
+		"e1",
+		"f1",
+		"g1",
+		"a1",
+		"b1",
+		"c2",
+		"d2",
+		"e2",
+		"f2",
+		"g2",
+		"a2",
+		"b2",
+		"c3",
+		"d3",
+		"e3",
+		"f3",
+		"g3",
+		"a3",
+		"b3",
+		"c4",
+	}
+	while true do
+		inc=2
+		i=1
+		for a=1,#alphabet/inc do
+			print(alphabet[i].."\a"..alphabet[i])
+			sleep(5)
+			i=i+inc
+		end
 	end
 end
 
-function loopover(v,l)
-	if(v>l) then
-		return abs(v-l)
-	else return v end
+function sleep(s) 
+	for i=1,s do
+		flip()
+	end 
 end
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
