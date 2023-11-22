@@ -1,39 +1,46 @@
 pico-8 cartridge // http://www.pico-8.com
-version 32
+version 35
 __lua__
-reload(0x0,0x0,0x42ff,"/global-thermonuclear-war.p8")
-#include /global-thermonuclear-war.p8
-
-srand(stat(95))
-
-//pallette
-for i=0x5f00,0x5f0f do
-	poke(i,flr(rnd(18)))
+function _init()
+	alphabet={
+		"c1",
+		"d1",
+		"e1",
+		"f1",
+		"g1",
+		"a1",
+		"b1",
+		"c2",
+		"d2",
+		"e2",
+		"f2",
+		"g2",
+		"a2",
+		"b2",
+		"c3",
+		"d3",
+		"e3",
+		"f3",
+		"g3",
+		"a3",
+		"b3",
+		"c4",
+	}
+	while true do
+		inc=2
+		i=1
+		for a=1,#alphabet/inc do
+			print(alphabet[i].."\a"..alphabet[i])
+			sleep(5)
+			i=i+inc
+		end
+	end
 end
 
-//map
-for i=0x2000,0x2fff do
-	poke(i,flr(rnd(256)))
-end
-
-//font
-for i=0x5600,0x5dff do
-	poke(i,flr(rnd(15)))
-end
-
-//printing
-for i=24408,24411 do
-	poke(i,flr(rnd(15)))
-end
-
-//music
-for i=0x3100,0x31ff do
-	//poke(i,flr(rnd(64)))
-end
-
-//sfx
-for i=0x3200,0x42ff do
-	poke(i,peek(i)-rnd(100))
+function sleep(s) 
+	for i=1,s do
+		flip()
+	end 
 end
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000

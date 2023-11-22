@@ -1,0 +1,50 @@
+[000000] codo_init
+[000000]   platform: Max OS X
+[000000]   codo_system_init
+[000164]   Compiled against SDL version: 2.0.12
+[000164]   Linked against SDL version:   2.0.12
+[000164]   Current video driver: cocoa
+[000164]   codo_reset_timer
+[000164]   codo_gui_init
+[000164]   codo_keys_init
+[000164]   codo_text_init
+[000164]   codo_video_init
+[000164]   codo_mouse_init
+[000164]   codo_joystick_init
+[000165]   searching for joysticks
+[000165]     found 0 joysticks
+[000165]   ok
+[000165] ok
+[000175] codo_load_pod: /Applications/PICO-8.app/Contents/MacOS/pico8.dat ok 
+[000177] codo_set_screen 128 128 8 100
+[000177]  window size: 640 540
+[000294]   setting filter to nearest (screen_mode 0  back page width: 128)
+  renderer metal:
+   flags: 0x0000000E ( |  | )
+   texture formats (6): ARGB8888, ABGR8888, YV12, IYUV, 0x3231564e, 0x3132564e
+   max texture size: 16384x16384
+[000297]  desktop size: 1920 1080
+[000297] ok
+[000305] codo_sound_init mix_buffer_size: 1024
+[000305] codo_sound_init
+[000305] SDL_INIT_AUDIO ok
+[000364] SDL_OpenAudio ok
+[000364]  freq:22050
+ channels:1
+[000364] Built-in audio drivers: 0 coreaudio 1 disk 2 dummy
+[000364] Current audio driver: coreaudio
+[000364] splore_init
+[000365] could not load favourites file: /Users/chasepeck/Library/Application Support/pico-8/carts/favourites.txt
+[002430] loading /Users/chasepeck/Library/Application Support/pico-8/carts/global-thermonuclear-war.p8
+[004357] run_cart current_filename: /Users/chasepeck/Library/Application Support/pico-8/carts/global-thermonuclear-war.p8 running_filename: /Users/chasepeck/Library/Application Support/pico-8/carts/global-thermonuclear-war.p8 running_cart_lid: 
+[016016] run_cart current_filename: /Users/chasepeck/Library/Application Support/pico-8/carts/global-thermonuclear-war.p8 running_filename: /Users/chasepeck/Library/Application Support/pico-8/carts/global-thermonuclear-war.p8 running_cart_lid: 
+[028667] codo_exit
+[028667]   cmusic_stop
+[028667]   codo_main_exit
+[028669]   codo_config_save
+[028669]   codo_sound_exit
+[028669]   codo_video_exit
+[028676]   codo_joystick_exit
+[028676]   codo_system_exit
+[028676]   codo_items_created: 1047
+[028676] ok
