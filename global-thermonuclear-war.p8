@@ -4,68 +4,70 @@ __lua__
 --global thermonuclear war
 --2022 organic games
 
-//load font 
-poke(0x5600,unpack(split"6,8,6,0,0,0,0,0,44,14,44,12,44,0,0,0,39,12,47,3,47,0,0,0,47,12,46,12,39,0,0,0,45,13,47,12,44,0,0,0,47,3,47,12,39,0,0,0,46,2,47,11,47,0,0,0,47,12,44,12,44,0,0,0,46,10,47,11,47,0,0,0,47,13,47,4,39,0,0,0,46,10,47,11,43,0,0,0,39,11,47,11,39,0,0,0,47,3,35,3,47,0,0,0,39,11,43,11,39,0,0,0,46,2,39,3,47,0,0,0,46,2,39,3,35,0,0,0,15,15,15,15,15,0,0,0,31,31,31,31,31,0,0,0,31,31,27,31,31,0,0,0,27,27,4,27,27,0,0,0,27,27,0,27,27,0,0,0,0,0,27,27,27,0,0,0,24,30,31,30,24,0,0,0,3,15,31,15,3,0,0,0,31,3,3,0,0,0,0,0,0,0,24,24,31,0,0,0,17,27,14,31,4,0,0,0,0,0,6,0,0,0,0,0,0,0,0,6,12,0,0,0,0,0,0,0,0,12,12,0,0,0,10,10,0,0,0,0,2,5,2,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,0,6,0,0,0,27,27,0,0,0,0,0,0,10,31,10,31,10,0,0,0,31,7,28,31,4,0,0,0,25,28,14,7,19,0,0,0,7,5,14,5,11,0,0,0,2,2,0,0,0,0,0,0,6,3,3,3,6,0,0,0,3,6,6,6,3,0,0,0,21,14,31,14,21,0,0,0,0,4,14,4,0,0,0,0,0,0,0,6,6,3,0,0,0,0,14,0,0,0,0,0,0,0,0,6,6,0,0,0,24,28,14,7,3,0,0,0,31,19,19,19,31,0,0,0,12,14,13,12,12,0,0,0,15,16,31,3,31,0,0,0,15,8,31,24,31,0,0,0,17,17,31,24,24,0,0,0,31,3,31,16,15,0,0,0,31,1,31,19,31,0,0,0,31,24,12,12,6,0,0,0,30,18,31,19,31,0,0,0,31,19,31,16,31,0,0,0,0,6,0,0,6,0,0,0,0,6,0,0,6,3,0,0,28,14,7,14,28,0,0,0,0,31,0,31,0,0,0,0,7,14,28,14,7,0,0,0,31,25,28,0,4,0,0,0,31,19,27,3,31,0,0,0,15,24,31,27,30,0,0,0,3,3,31,27,30,0,0,0,0,0,30,3,31,0,0,0,24,24,31,27,15,0,0,0,15,27,31,3,30,0,0,0,30,3,15,3,3,0,0,0,0,30,27,31,24,15,0,0,3,3,15,27,27,0,0,0,6,0,15,6,15,0,0,0,24,0,24,27,27,14,0,0,3,27,27,15,27,0,0,0,3,3,3,27,14,0,0,0,0,17,27,31,27,0,0,0,0,0,15,27,27,0,0,0,0,0,30,27,15,0,0,0,0,0,30,27,31,3,0,0,0,0,15,27,31,24,0,0,0,0,15,27,3,0,0,0,0,15,3,12,15,0,0,0,3,7,3,27,31,0,0,0,0,0,27,27,30,0,0,0,0,0,27,27,14,0,0,0,0,0,21,31,27,0,0,0,0,0,27,14,27,0,0,0,0,0,27,31,24,15,0,0,0,31,12,6,31,0,0,0,15,3,3,3,15,0,0,0,3,7,14,28,24,0,0,0,15,12,12,12,15,0,0,0,6,15,9,0,0,0,0,0,0,0,0,0,15,0,0,0,3,6,0,0,0,0,0,0,15,27,31,27,27,0,0,0,31,27,15,27,31,0,0,0,30,3,3,3,31,0,0,0,15,27,27,27,15,0,0,0,31,3,7,3,31,0,0,0,31,3,7,3,3,0,0,0,30,3,27,27,14,0,0,0,27,27,31,27,27,0,0,0,15,6,6,6,15,0,0,0,24,24,24,27,14,0,0,0,27,27,15,27,27,0,0,0,3,3,3,3,31,0,0,0,17,27,31,27,27,0,0,0,25,27,31,27,19,0,0,0,30,27,27,27,15,0,0,0,30,27,31,3,3,0,0,0,14,19,19,27,30,0,0,0,15,27,15,27,27,0,0,0,30,3,31,24,15,0,0,0,15,6,6,6,6,0,0,0,27,27,27,27,30,0,0,0,27,27,14,14,4,0,0,0,27,27,31,27,17,0,0,0,27,27,14,27,27,0,0,0,27,27,14,6,12,0,0,0,31,28,14,7,31,0,0,0,14,6,7,6,14,0,0,0,4,4,0,4,4,0,0,0,7,6,14,6,7,0,0,0,0,22,31,13,0,0,0,0,0,0,0,0,0,0,0,0,127,127,127,127,127,0,0,0,85,42,85,42,85,0,0,0,65,127,93,93,62,0,0,0,62,99,99,119,62,0,0,0,17,68,17,68,17,0,0,0,4,60,28,30,16,0,0,0,28,38,46,62,28,0,0,0,54,62,62,28,8,0,0,0,28,54,119,54,28,0,0,0,28,28,62,28,20,0,0,0,28,62,127,42,58,0,0,0,62,103,99,103,62,0,0,0,127,93,127,65,127,0,0,0,28,4,4,7,7,0,0,0,62,99,107,99,62,0,0,0,16,56,124,56,16,0,0,0,0,0,85,0,0,0,0,0,62,115,99,115,62,0,0,0,8,28,127,62,34,0,0,0,62,28,8,28,62,0,0,0,62,119,99,99,62,0,0,0,0,10,4,80,32,0,0,0,0,17,42,68,0,0,0,0,62,107,119,107,62,0,0,0,127,0,127,0,127,0,0,0,85,85,85,85,85,0,0,0,14,4,30,45,38,0,0,0,17,33,33,37,2,0,0,0,12,30,32,32,28,0,0,0,8,30,8,36,26,0,0,0,78,4,62,69,38,0,0,0,34,95,18,18,10,0,0,0,30,8,60,17,6,0,0,0,16,12,2,12,16,0,0,0,34,122,34,34,18,0,0,0,30,32,0,2,60,0,0,0,8,60,16,2,12,0,0,0,2,2,2,34,28,0,0,0,8,62,8,12,8,0,0,0,18,63,18,2,28,0,0,0,60,16,126,4,56,0,0,0,2,7,50,2,50,0,0,0,15,2,14,16,28,0,0,0,62,64,64,32,24,0,0,0,62,16,8,8,16,0,0,0,8,56,4,2,60,0,0,0,50,7,18,120,24,0,0,0,122,66,2,10,114,0,0,0,9,126,75,109,102,0,0,0,26,39,34,115,50,0,0,0,60,74,73,73,70,0,0,0,18,58,18,58,26,0,0,0,35,98,34,34,28,0,0,0,12,0,8,42,77,0,0,0,0,12,18,33,64,0,0,0,125,121,17,61,93,0,0,0,62,60,8,30,46,0,0,0,6,36,126,38,16,0,0,0,36,78,4,70,60,0,0,0,10,60,90,70,48,0,0,0,30,4,30,68,56,0,0,0,20,62,36,8,8,0,0,0,58,86,82,48,8,0,0,0,4,28,4,30,6,0,0,0,8,2,62,32,28,0,0,0,34,34,38,32,24,0,0,0,62,24,36,114,48,0,0,0,4,54,44,38,100,0,0,0,62,24,36,66,48,0,0,0,26,39,34,35,18,0,0,0,14,100,28,40,120,0,0,0,4,2,6,43,25,0,0,0,0,0,14,16,8,0,0,0,0,10,31,18,4,0,0,0,0,4,15,21,13,0,0,0,0,4,12,6,14,0,0,0,62,32,20,4,2,0,0,0,48,8,14,8,8,0,0,0,8,62,34,32,24,0,0,0,62,8,8,8,62,0,0,0,16,126,24,20,18,0,0,0,4,62,36,34,50,0,0,0,8,62,8,62,8,0,0,0,60,36,34,16,8,0,0,0,4,124,18,16,8,0,0,0,62,32,32,32,62,0,0,0,36,126,36,32,16,0,0,0,6,32,38,16,12,0,0,0,62,32,16,24,38,0,0,0,4,62,36,4,56,0,0,0,34,36,32,16,12,0,0,0,62,34,45,48,12,0,0,0,28,8,62,8,4,0,0,0,42,42,32,16,12,0,0,0,28,0,62,8,4,0,0,0,4,4,28,36,4,0,0,0,8,62,8,8,4,0,0,0,0,28,0,0,62,0,0,0,62,32,40,16,44,0,0,0,8,62,48,94,8,0,0,0,32,32,32,16,14,0,0,0,16,36,36,68,66,0,0,0,2,30,2,2,28,0,0,0,62,32,32,16,12,0,0,0,12,18,33,64,0,0,0,0,8,62,8,42,42,0,0,0,62,32,20,8,16,0,0,0,28,0,30,0,14,0,0,0,8,4,36,66,126,0,0,0,64,40,16,104,6,0,0,0,30,4,30,4,60,0,0,0,4,62,36,4,4,0,0,0,28,16,16,16,62,0,0,0,30,16,30,16,30,0,0,0,62,0,62,32,24,0,0,0,36,36,36,32,16,0,0,0,20,20,20,84,50,0,0,0,2,2,34,18,14,0,0,0,62,34,34,34,62,0,0,0,62,34,32,16,12,0,0,0,62,32,60,32,24,0,0,0,6,32,32,16,14,0,0,0,0,21,16,8,6,0,0,0,0,4,30,20,4,0,0,0,0,0,12,8,30,0,0,0,0,14,12,8,14,0,0,0,12,6,99,48,24,0,0,0,24,48,99,6,12,0,0,0"))
+--load font 
+poke(0x5600, unpack(split("6, 8, 6, 0, 0, 0, 0, 0, 44, 14, 44, 12, 44, 0, 0, 0, 39, 12, 47, 3, 47, 0, 0, 0, 47, 12, 46, 12, 39, 0, 0, 0, 45, 13, 47, 12, 44, 0, 0, 0, 47, 3, 47, 12, 39, 0, 0, 0, 46, 2, 47, 11, 47, 0, 0, 0, 47, 12, 44, 12, 44, 0, 0, 0, 46, 10, 47, 11, 47, 0, 0, 0, 47, 13, 47, 4, 39, 0, 0, 0, 46, 10, 47, 11, 43, 0, 0, 0, 39, 11, 47, 11, 39, 0, 0, 0, 47, 3, 35, 3, 47, 0, 0, 0, 39, 11, 43, 11, 39, 0, 0, 0, 46, 2, 39, 3, 47, 0, 0, 0, 46, 2, 39, 3, 35, 0, 0, 0, 15, 15, 15, 15, 15, 0, 0, 0, 31, 31, 31, 31, 31, 0, 0, 0, 31, 31, 27, 31, 31, 0, 0, 0, 27, 27, 4, 27, 27, 0, 0, 0, 27, 27, 0, 27, 27, 0, 0, 0, 0, 0, 27, 27, 27, 0, 0, 0, 24, 30, 31, 30, 24, 0, 0, 0, 3, 15, 31, 15, 3, 0, 0, 0, 31, 3, 3, 0, 0, 0, 0, 0, 0, 0, 24, 24, 31, 0, 0, 0, 17, 27, 14, 31, 4, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 6, 12, 0, 0, 0, 0, 0, 0, 0, 0, 12, 12, 0, 0, 0, 10, 10, 0, 0, 0, 0, 2, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 6, 0, 6, 0, 0, 0, 27, 27, 0, 0, 0, 0, 0, 0, 10, 31, 10, 31, 10, 0, 0, 0, 31, 7, 28, 31, 4, 0, 0, 0, 25, 28, 14, 7, 19, 0, 0, 0, 7, 5, 14, 5, 11, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 6, 3, 3, 3, 6, 0, 0, 0, 3, 6, 6, 6, 3, 0, 0, 0, 21, 14, 31, 14, 21, 0, 0, 0, 0, 4, 14, 4, 0, 0, 0, 0, 0, 0, 0, 6, 6, 3, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 0, 0, 0, 24, 28, 14, 7, 3, 0, 0, 0, 31, 19, 19, 19, 31, 0, 0, 0, 12, 14, 13, 12, 12, 0, 0, 0, 15, 16, 31, 3, 31, 0, 0, 0, 15, 8, 31, 24, 31, 0, 0, 0, 17, 17, 31, 24, 24, 0, 0, 0, 31, 3, 31, 16, 15, 0, 0, 0, 31, 1, 31, 19, 31, 0, 0, 0, 31, 24, 12, 12, 6, 0, 0, 0, 30, 18, 31, 19, 31, 0, 0, 0, 31, 19, 31, 16, 31, 0, 0, 0, 0, 6, 0, 0, 6, 0, 0, 0, 0, 6, 0, 0, 6, 3, 0, 0, 28, 14, 7, 14, 28, 0, 0, 0, 0, 31, 0, 31, 0, 0, 0, 0, 7, 14, 28, 14, 7, 0, 0, 0, 31, 25, 28, 0, 4, 0, 0, 0, 31, 19, 27, 3, 31, 0, 0, 0, 15, 24, 31, 27, 30, 0, 0, 0, 3, 3, 31, 27, 30, 0, 0, 0, 0, 0, 30, 3, 31, 0, 0, 0, 24, 24, 31, 27, 15, 0, 0, 0, 15, 27, 31, 3, 30, 0, 0, 0, 30, 3, 15, 3, 3, 0, 0, 0, 0, 30, 27, 31, 24, 15, 0, 0, 3, 3, 15, 27, 27, 0, 0, 0, 6, 0, 15, 6, 15, 0, 0, 0, 24, 0, 24, 27, 27, 14, 0, 0, 3, 27, 27, 15, 27, 0, 0, 0, 3, 3, 3, 27, 14, 0, 0, 0, 0, 17, 27, 31, 27, 0, 0, 0, 0, 0, 15, 27, 27, 0, 0, 0, 0, 0, 30, 27, 15, 0, 0, 0, 0, 0, 30, 27, 31, 3, 0, 0, 0, 0, 15, 27, 31, 24, 0, 0, 0, 0, 15, 27, 3, 0, 0, 0, 0, 15, 3, 12, 15, 0, 0, 0, 3, 7, 3, 27, 31, 0, 0, 0, 0, 0, 27, 27, 30, 0, 0, 0, 0, 0, 27, 27, 14, 0, 0, 0, 0, 0, 21, 31, 27, 0, 0, 0, 0, 0, 27, 14, 27, 0, 0, 0, 0, 0, 27, 31, 24, 15, 0, 0, 0, 31, 12, 6, 31, 0, 0, 0, 15, 3, 3, 3, 15, 0, 0, 0, 3, 7, 14, 28, 24, 0, 0, 0, 15, 12, 12, 12, 15, 0, 0, 0, 6, 15, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 3, 6, 0, 0, 0, 0, 0, 0, 15, 27, 31, 27, 27, 0, 0, 0, 31, 27, 15, 27, 31, 0, 0, 0, 30, 3, 3, 3, 31, 0, 0, 0, 15, 27, 27, 27, 15, 0, 0, 0, 31, 3, 7, 3, 31, 0, 0, 0, 31, 3, 7, 3, 3, 0, 0, 0, 30, 3, 27, 27, 14, 0, 0, 0, 27, 27, 31, 27, 27, 0, 0, 0, 15, 6, 6, 6, 15, 0, 0, 0, 24, 24, 24, 27, 14, 0, 0, 0, 27, 27, 15, 27, 27, 0, 0, 0, 3, 3, 3, 3, 31, 0, 0, 0, 17, 27, 31, 27, 27, 0, 0, 0, 25, 27, 31, 27, 19, 0, 0, 0, 30, 27, 27, 27, 15, 0, 0, 0, 30, 27, 31, 3, 3, 0, 0, 0, 14, 19, 19, 27, 30, 0, 0, 0, 15, 27, 15, 27, 27, 0, 0, 0, 30, 3, 31, 24, 15, 0, 0, 0, 15, 6, 6, 6, 6, 0, 0, 0, 27, 27, 27, 27, 30, 0, 0, 0, 27, 27, 14, 14, 4, 0, 0, 0, 27, 27, 31, 27, 17, 0, 0, 0, 27, 27, 14, 27, 27, 0, 0, 0, 27, 27, 14, 6, 12, 0, 0, 0, 31, 28, 14, 7, 31, 0, 0, 0, 14, 6, 7, 6, 14, 0, 0, 0, 4, 4, 0, 4, 4, 0, 0, 0, 7, 6, 14, 6, 7, 0, 0, 0, 0, 22, 31, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 127, 127, 127, 127, 127, 0, 0, 0, 85, 42, 85, 42, 85, 0, 0, 0, 65, 127, 93, 93, 62, 0, 0, 0, 62, 99, 99, 119, 62, 0, 0, 0, 17, 68, 17, 68, 17, 0, 0, 0, 4, 60, 28, 30, 16, 0, 0, 0, 28, 38, 46, 62, 28, 0, 0, 0, 54, 62, 62, 28, 8, 0, 0, 0, 28, 54, 119, 54, 28, 0, 0, 0, 28, 28, 62, 28, 20, 0, 0, 0, 28, 62, 127, 42, 58, 0, 0, 0, 62, 103, 99, 103, 62, 0, 0, 0, 127, 93, 127, 65, 127, 0, 0, 0, 28, 4, 4, 7, 7, 0, 0, 0, 62, 99, 107, 99, 62, 0, 0, 0, 16, 56, 124, 56, 16, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 62, 115, 99, 115, 62, 0, 0, 0, 8, 28, 127, 62, 34, 0, 0, 0, 62, 28, 8, 28, 62, 0, 0, 0, 62, 119, 99, 99, 62, 0, 0, 0, 0, 10, 4, 80, 32, 0, 0, 0, 0, 17, 42, 68, 0, 0, 0, 0, 62, 107, 119, 107, 62, 0, 0, 0, 127, 0, 127, 0, 127, 0, 0, 0, 85, 85, 85, 85, 85, 0, 0, 0, 14, 4, 30, 45, 38, 0, 0, 0, 17, 33, 33, 37, 2, 0, 0, 0, 12, 30, 32, 32, 28, 0, 0, 0, 8, 30, 8, 36, 26, 0, 0, 0, 78, 4, 62, 69, 38, 0, 0, 0, 34, 95, 18, 18, 10, 0, 0, 0, 30, 8, 60, 17, 6, 0, 0, 0, 16, 12, 2, 12, 16, 0, 0, 0, 34, 122, 34, 34, 18, 0, 0, 0, 30, 32, 0, 2, 60, 0, 0, 0, 8, 60, 16, 2, 12, 0, 0, 0, 2, 2, 2, 34, 28, 0, 0, 0, 8, 62, 8, 12, 8, 0, 0, 0, 18, 63, 18, 2, 28, 0, 0, 0, 60, 16, 126, 4, 56, 0, 0, 0, 2, 7, 50, 2, 50, 0, 0, 0, 15, 2, 14, 16, 28, 0, 0, 0, 62, 64, 64, 32, 24, 0, 0, 0, 62, 16, 8, 8, 16, 0, 0, 0, 8, 56, 4, 2, 60, 0, 0, 0, 50, 7, 18, 120, 24, 0, 0, 0, 122, 66, 2, 10, 114, 0, 0, 0, 9, 126, 75, 109, 102, 0, 0, 0, 26, 39, 34, 115, 50, 0, 0, 0, 60, 74, 73, 73, 70, 0, 0, 0, 18, 58, 18, 58, 26, 0, 0, 0, 35, 98, 34, 34, 28, 0, 0, 0, 12, 0, 8, 42, 77, 0, 0, 0, 0, 12, 18, 33, 64, 0, 0, 0, 125, 121, 17, 61, 93, 0, 0, 0, 62, 60, 8, 30, 46, 0, 0, 0, 6, 36, 126, 38, 16, 0, 0, 0, 36, 78, 4, 70, 60, 0, 0, 0, 10, 60, 90, 70, 48, 0, 0, 0, 30, 4, 30, 68, 56, 0, 0, 0, 20, 62, 36, 8, 8, 0, 0, 0, 58, 86, 82, 48, 8, 0, 0, 0, 4, 28, 4, 30, 6, 0, 0, 0, 8, 2, 62, 32, 28, 0, 0, 0, 34, 34, 38, 32, 24, 0, 0, 0, 62, 24, 36, 114, 48, 0, 0, 0, 4, 54, 44, 38, 100, 0, 0, 0, 62, 24, 36, 66, 48, 0, 0, 0, 26, 39, 34, 35, 18, 0, 0, 0, 14, 100, 28, 40, 120, 0, 0, 0, 4, 2, 6, 43, 25, 0, 0, 0, 0, 0, 14, 16, 8, 0, 0, 0, 0, 10, 31, 18, 4, 0, 0, 0, 0, 4, 15, 21, 13, 0, 0, 0, 0, 4, 12, 6, 14, 0, 0, 0, 62, 32, 20, 4, 2, 0, 0, 0, 48, 8, 14, 8, 8, 0, 0, 0, 8, 62, 34, 32, 24, 0, 0, 0, 62, 8, 8, 8, 62, 0, 0, 0, 16, 126, 24, 20, 18, 0, 0, 0, 4, 62, 36, 34, 50, 0, 0, 0, 8, 62, 8, 62, 8, 0, 0, 0, 60, 36, 34, 16, 8, 0, 0, 0, 4, 124, 18, 16, 8, 0, 0, 0, 62, 32, 32, 32, 62, 0, 0, 0, 36, 126, 36, 32, 16, 0, 0, 0, 6, 32, 38, 16, 12, 0, 0, 0, 62, 32, 16, 24, 38, 0, 0, 0, 4, 62, 36, 4, 56, 0, 0, 0, 34, 36, 32, 16, 12, 0, 0, 0, 62, 34, 45, 48, 12, 0, 0, 0, 28, 8, 62, 8, 4, 0, 0, 0, 42, 42, 32, 16, 12, 0, 0, 0, 28, 0, 62, 8, 4, 0, 0, 0, 4, 4, 28, 36, 4, 0, 0, 0, 8, 62, 8, 8, 4, 0, 0, 0, 0, 28, 0, 0, 62, 0, 0, 0, 62, 32, 40, 16, 44, 0, 0, 0, 8, 62, 48, 94, 8, 0, 0, 0, 32, 32, 32, 16, 14, 0, 0, 0, 16, 36, 36, 68, 66, 0, 0, 0, 2, 30, 2, 2, 28, 0, 0, 0, 62, 32, 32, 16, 12, 0, 0, 0, 12, 18, 33, 64, 0, 0, 0, 0, 8, 62, 8, 42, 42, 0, 0, 0, 62, 32, 20, 8, 16, 0, 0, 0, 28, 0, 30, 0, 14, 0, 0, 0, 8, 4, 36, 66, 126, 0, 0, 0, 64, 40, 16, 104, 6, 0, 0, 0, 30, 4, 30, 4, 60, 0, 0, 0, 4, 62, 36, 4, 4, 0, 0, 0, 28, 16, 16, 16, 62, 0, 0, 0, 30, 16, 30, 16, 30, 0, 0, 0, 62, 0, 62, 32, 24, 0, 0, 0, 36, 36, 36, 32, 16, 0, 0, 0, 20, 20, 20, 84, 50, 0, 0, 0, 2, 2, 34, 18, 14, 0, 0, 0, 62, 34, 34, 34, 62, 0, 0, 0, 62, 34, 32, 16, 12, 0, 0, 0, 62, 32, 60, 32, 24, 0, 0, 0, 6, 32, 32, 16, 14, 0, 0, 0, 0, 21, 16, 8, 6, 0, 0, 0, 0, 4, 30, 20, 4, 0, 0, 0, 0, 0, 12, 8, 30, 0, 0, 0, 0, 14, 12, 8, 14, 0, 0, 0, 12, 6, 99, 48, 24, 0, 0, 0, 24, 48, 99, 6, 12, 0, 0, 0")))
 
-//title screen
+--title screen
 function _init()
-	game_state=0
-	enable_mus=true
+	game_state = 0
+	enable_mus = true
 	
-	menuitem(1,"toggle music",
+	menuitem(1, "toggle music", 
 	function()
-		music(-1)
-		if(enable_mus)then
-			enable_mus=false
+		music( - 1)
+		if(enable_mus) then
+			enable_mus = false
 		else
-			enable_mus=true
+			enable_mus = true
 		end
- end)
+	end)
 	
-	camx=0
-	camy=0
+	camx = 0
+	camy = 0
 	playmusic(0)
 
 end
+
 function _update()
-	if(game_state==0)then
-		if(btn(🅾️))then
+	if(game_state == 0) then
+		if(btn(🅾️)) then
 			sfx(61)
 			init_game(true)
-		elseif(btn(❎))then
+		elseif(btn(❎)) then
 			sfx(61)
 			init_game(false)
 		end
-	elseif(game_state==1)then
+	elseif(game_state == 1) then
 		update_game()
-	elseif(game_state==2)then
+	elseif(game_state == 2) then
 		update_menu()
 	end
 end
+
 function _draw()
 	cls()
 	
-	if(game_state==0)then
-		camx=30-sin(time()/10)*25
+	if(game_state == 0) then
+		camx = 40 - sin(time() / 11) * 30
 		
-		map(0,0,0,0,25,30)
-		camera(camx,camy)
+		map(0, 0, 0, 0, 25, 30)
+		camera(camx, camy)
 	
 		color(0)
-		rectfill(36+camx,78+camy,86+camx,92+camy,0)
-		rectfill(0+camx,120+camy,128+camx,128+camy,0)
-		print("\14global thermonuclear war",4+camx,40+sin(time())*2+1+camy)
-		print("\14war",58+camx,48+sin(time())*2+1+camy)
+		rectfill(36 + camx, 78 + camy, 86 + camx, 92 + camy, 0)
+		rectfill(0 + camx, 120 + camy, 128 + camx, 128 + camy, 0)
+		print("\14global thermonuclear war", 4 + camx, 40 + sin(time()) * 2 + 1 + camy)
+		print("\14\^w\^twar", 48 + camx, 48 + sin(time()) * 2 + 1 + camy)
 		color(8)
-		print("\14global thermonuclear war",4+camx,40+sin(time())*2+camy)
-		print("\14war",58+camx,48+sin(time())*2+camy)
+		print("\14global thermonuclear war", 4 + camx, 40 + sin(time()) * 2 + camy)
+		print("\14\^w\^twar", 48 + camx, 48 + sin(time()) * 2 + camy)
 		color(14)
-		print("🅾️: 1 player\n❎: 2 player",38+camx,80+camy)
+		print("🅾️: 1 player\n❎: 2 player", 38 + camx, 80 + camy)
 		color(1)
-		print("2022\14 organic games",0+camx,122+camy)
-	elseif(game_state==1)then
+		print("2022\14 organic games", 0 + camx, 122 + camy)
+	elseif(game_state == 1) then
 		draw_game()
-	elseif(game_state==2)then
+	elseif(game_state == 2) then
 		draw_menu()
 	end
 end
@@ -75,49 +77,49 @@ function playmusic(mus)
 	if(enable_mus)music(mus)
 end
 
-function check_table_contains(table,value)
-	for i=1,count(table) do
-		if(table[i]==value) return true
+function check_table_contains(table, value)
+	for i = 1, count(table) do
+		if(table[i] == value) return true
 	end
 	return false
 end
 
 function turn_end(t)
-	if(t==1)then
-		p1_data=pdat
-		pdat=p2_data
-		game_data.turn=2
-		alert("player 2's turn",8)
+	if(t == 1) then
+		p1_data = pdat
+		pdat = p2_data
+		game_data.turn = 2
+		alert("player 2's turn", 8)
 	else 
-		p2_data=pdat
-		pdat=p1_data
-		game_data.turn=1 
-		alert("player 1's turn",12)
+		p2_data = pdat
+		pdat = p1_data
+		game_data.turn = 1 
+		alert("player 1's turn", 12)
 	end
-	if(count(pdat.ctrl)>0)then
-		slct=min_table(pdat.ctrl)
-		camx=cities[slct][1]*8-64
-		camy=cities[slct][2]*8-64
+	if(count(pdat.ctrl) > 0) then
+		slct = min_table(pdat.ctrl)
+		camx = cities[slct][1] * 8 - 64
+		camy = cities[slct][2] * 8 - 64
 	else
-		slct=1
-		camx=cities[1][1]*8-64
-		camy=cities[1][2]*8-64
+		slct = 1
+		camx = cities[1][1] * 8 - 64
+		camy = cities[1][2] * 8 - 64
 	end
 end
 
-function alert(message,col)
+function alert(message, col)
 	sfx(54)
-	supp_data.alert=true
-	supp_data.alert_mes=message
-	supp_data.alert_color=col
-	supp_data.anim_tick=0
+	supp_data.alert = true
+	supp_data.alert_mes = message
+	supp_data.alert_color = col
+	supp_data.anim_tick = 0
 end
 
 function min_table(table)
-	local smallest=32767.99999
-	for i=1,count(table) do
-		if(table[i]<smallest)then
-			smallest=table[i]
+	local smallest = 32767.99999
+	for i = 1, count(table) do
+		if(table[i] < smallest) then
+			smallest = table[i]
 		end
 	end
 	return smallest
@@ -125,328 +127,328 @@ end
 -->8
 --game
 function init_game(_ai)
-	game_state=1
-	choose=true
-	select_mode=0
-	select_prompt=true
-	camx=0
-	camy=0
-	slct=1
+	game_state = 1
+	choose = true
+	select_mode = 0
+	select_prompt = true
+	camx = 0
+	camy = 0
+	slct = 1
 	playmusic(4)
 	
-	p1_data={ctrl={},silos={},bases={},radars={}}
-	p2_data={ctrl={},silos={},bases={},radars={}}
+	p1_data = {ctrl = {}, silos = {}, bases = {}, radars = {}}
+	p2_data = {ctrl = {}, silos = {}, bases = {}, radars = {}}
 	
-	pdat=p1_data
+	pdat = p1_data
 	
-	game_data={
-		ai=_ai,
-		cooldown=5,
-		defcon=5,
-		turn=1
+	game_data = {
+		ai = _ai, 
+		cooldown = 5, 
+		defcon = 5, 
+		turn = 1
 	}
 	
-	supp_data={
-		alert=false,
-		alert_mes="",
-		alert_color=0,
-		anim_tick=0
+	supp_data = {
+		alert = false, 
+		alert_mes = "", 
+		alert_color = 0, 
+		anim_tick = 0
 	}
 	
-	cities={
-	{4,3,"toronto",2.5},
-	{1,4,"los angeles",3.8},
-	{3,6,"mexico city",8.7},
-	{5,8,"panama",0.8},
-	{8,11,"brasilia",2.4},
-	{8,13,"buenos aires",3.0},
-	{12,3,"reykjavik",0.1},
-	{15,3,"london",7.6},
-	{15,5,"paris",2.2},
-	{17,4,"berlin",3.4},
-	{18,2,"moscow",10.4},
-	{19,6,"new delhi",12.2},
-	{15,8,"cairo",6.7},
-	{14,15,"cape town",3.5},
-	{23,4,"beijing",8.5},
-	{23,6,"seoul",10.4},
-	{21,8,"bangkok",5.7},
-	{22,10,"singapore",5.6},
-	{27,6,"tokyo",12.7},
-	{27,12,"sydney",4.3},
-	{33,12,"wellington",0.2}
+	cities = {
+		{4, 3, "toronto", 2.5},
+		{1, 4, "los angeles", 3.8},
+		{3, 6, "mexico city", 8.7}, 
+		{5, 8, "panama", 0.8}, 
+		{8, 11, "brasilia", 2.4}, 
+		{8, 13, "buenos aires", 3.0}, 
+		{12, 3, "reykjavik", 0.1}, 
+		{15, 3, "london", 7.6}, 
+		{15, 5, "paris", 2.2}, 
+		{17, 4, "berlin", 3.4}, 
+		{18, 2, "moscow", 10.4}, 
+		{19, 6, "new delhi", 12.2}, 
+		{15, 8, "cairo", 6.7}, 
+		{14, 15, "cape town", 3.5}, 
+		{23, 4, "beijing", 8.5}, 
+		{23, 6, "seoul", 10.4}, 
+		{21, 8, "bangkok", 5.7}, 
+		{22, 10, "singapore", 5.6}, 
+		{27, 6, "tokyo", 12.7}, 
+		{27, 12, "sydney", 4.3}, 
+		{33, 12, "wellington", 0.2}
 	}
 	
-	pop={}
-	for i=1,count(cities) do
-		pop[i]=cities[i][4]
+	pop = {}
+	for i = 1, count(cities) do
+		pop[i] = cities[i][4]
 	end
 end
-function update_game()
 
-	//menu
-	if(btnp(🅾️) and not select_prompt)then
+function update_game()
+	--menu
+	if(btnp(🅾️) and not select_prompt) then
 		sfx(60)
-		game_state=2		
+		game_state = 2		
 		init_menu()
 	end
 
-	//selecting cities
-	if(select_prompt or btn(❎))then
+	--selecting cities
+	if(select_prompt or btn(❎)) then
 		if(btnp(➡️)) then
-			if(slct+1>count(cities)) then
-				slct=1
+			if(slct + 1 > count(cities)) then
+				slct = 1
 			else
-				slct+=1
+				slct += 1
 			end
-			camx=cities[slct][1]*8-64
-			camy=cities[slct][2]*8-64
+			camx = cities[slct][1] * 8 - 64
+			camy = cities[slct][2] * 8 - 64
 			sfx(63)
 		elseif(btnp(⬅️)) then
-			if(slct-1<1) then
-				slct=count(cities)
+			if(slct - 1 < 1) then
+				slct = count(cities)
 			else
-				slct-=1
+				slct -= 1
 			end
-			camx=cities[slct][1]*8-64
-			camy=cities[slct][2]*8-64
+			camx = cities[slct][1] * 8 - 64
+			camy = cities[slct][2] * 8 - 64
 			sfx(63)
 		end
-		if(btnp(🅾️) and not choose)then
-			select_mode=0
-			select_prompt=false
+		if(btnp(🅾️) and not choose) then
+			select_mode = 0
+			select_prompt = false
 			sfx(57)
 		end
-		if(btnp(❎) and not choose)then
-			if(select_mode==1)then
-				if(check_table_contains(pdat.ctrl,slct)
-				and not check_table_contains(pdat.silos,slct)
-				and not check_table_contains(pdat.bases,slct)
-				and not check_table_contains(pdat.radars,slct))then
-					add(pdat.silos,slct)
+		if(btnp(❎) and not choose) then
+			if(select_mode == 1) then
+				if(check_table_contains(pdat.ctrl, slct)
+				and not check_table_contains(pdat.silos, slct)
+				and not check_table_contains(pdat.bases, slct)
+				and not check_table_contains(pdat.radars, slct)) then
+					add(pdat.silos, slct)
 					sfx(61)
 					sfx(55)
-					select_mode=0
-					select_prompt=false
+					select_mode = 0
+					select_prompt = false
 					turn_end(game_data.turn)
 				else sfx(56) end
-			elseif(select_mode==2)then
-				if(check_table_contains(pdat.ctrl,slct)
-				and not check_table_contains(pdat.bases,slct)
-				and not check_table_contains(pdat.silos,slct)
-				and not check_table_contains(pdat.radars,slct))then
-					add(pdat.bases,slct)
+			elseif(select_mode == 2) then
+				if(check_table_contains(pdat.ctrl, slct)
+				and not check_table_contains(pdat.bases, slct)
+				and not check_table_contains(pdat.silos, slct)
+				and not check_table_contains(pdat.radars, slct)) then
+					add(pdat.bases, slct)
 					sfx(61)
 					sfx(55)
-					select_mode=0
-					select_prompt=false
+					select_mode = 0
+					select_prompt = false
 					turn_end(game_data.turn)
 				else sfx(56) end
-			elseif(select_mode==3)then
-				if(check_table_contains(pdat.ctrl,slct)
-				and not check_table_contains(pdat.radars,slct)
-				and not check_table_contains(pdat.silos,slct)
-				and not check_table_contains(pdat.bases,slct))then
-					add(pdat.radars,slct)
+			elseif(select_mode == 3) then
+				if(check_table_contains(pdat.ctrl, slct)
+				and not check_table_contains(pdat.radars, slct)
+				and not check_table_contains(pdat.silos, slct)
+				and not check_table_contains(pdat.bases, slct)) then
+					add(pdat.radars, slct)
 					sfx(61)
 					sfx(55)
-					select_mode=0
-					select_prompt=false
+					select_mode = 0
+					select_prompt = false
 					turn_end(game_data.turn)
 				else sfx(56) end
 			end
 		end
 	end
 	
-	//selecting starting city
+	--selecting starting city
 	if(btnp(❎) and choose) then
-		if (check_table_contains(p1_data.ctrl,slct) or check_table_contains(p2_data.ctrl,slct))then
+		if (check_table_contains(p1_data.ctrl, slct) or check_table_contains(p2_data.ctrl, slct)) then
 			sfx(56)
 		else
-			add(pdat.ctrl,slct)
+			add(pdat.ctrl, slct)
 			sfx(61)
-			if(game_data.turn==2)then
+			if(game_data.turn == 2) then
 				turn_end(2)
 				playmusic(5)
-				choose=false
-				select_prompt=false
+				choose = false
+				select_prompt = false
 			else turn_end(1) end
 		end
 	end
 	
-	//controlled cities
-	for i=1,count(p1_data.ctrl) do
-		mset(cities[p1_data.ctrl[i]][1],cities[p1_data.ctrl[i]][2],4)
+	--controlled cities
+	for i = 1, count(p1_data.ctrl) do
+		mset(cities[p1_data.ctrl[i]][1], cities[p1_data.ctrl[i]][2], 4)
 	end
-	for i=1,count(p2_data.ctrl) do
-		mset(cities[p2_data.ctrl[i]][1],cities[p2_data.ctrl[i]][2],3)
+	for i = 1, count(p2_data.ctrl) do
+		mset(cities[p2_data.ctrl[i]][1], cities[p2_data.ctrl[i]][2], 3)
 	end
 	
-	//silos, bases, radars
-	for i=1,count(p1_data.silos)do
-		mset(cities[p1_data.silos[i]][1],cities[p1_data.ctrl[i]][2],10)
+	--silos,  bases,  radars
+	for i = 1, count(p1_data.silos) do
+		mset(cities[p1_data.silos[i]][1], cities[p1_data.ctrl[i]][2], 10)
 	end
-	for i=1,count(p1_data.bases)do
-		mset(cities[p1_data.bases[i]][1],cities[p1_data.ctrl[i]][2],9)
+	for i = 1, count(p1_data.bases) do
+		mset(cities[p1_data.bases[i]][1], cities[p1_data.ctrl[i]][2], 9)
 	end
-	for i=1,count(p1_data.radars)do
-		mset(cities[p1_data.radars[i]][1],cities[p1_data.ctrl[i]][2],11)
+	for i = 1, count(p1_data.radars) do
+		mset(cities[p1_data.radars[i]][1], cities[p1_data.ctrl[i]][2], 11)
 	end
 
-	for i=1,count(p2_data.silos)do
-		mset(cities[p2_data.silos[i]][1],cities[p2_data.ctrl[i]][2],26)
+	for i = 1, count(p2_data.silos) do
+		mset(cities[p2_data.silos[i]][1], cities[p2_data.ctrl[i]][2], 26)
 	end
-	for i=1,count(p2_data.bases)do
-		mset(cities[p2_data.bases[i]][1],cities[p2_data.ctrl[i]][2],25)
+	for i = 1, count(p2_data.bases) do
+		mset(cities[p2_data.bases[i]][1], cities[p2_data.ctrl[i]][2], 25)
 	end
-	for i=1,count(p2_data.radars)do
-		mset(cities[p2_data.radars[i]][1],cities[p2_data.ctrl[i]][2],27)
+	for i = 1, count(p2_data.radars) do
+		mset(cities[p2_data.radars[i]][1], cities[p2_data.ctrl[i]][2], 27)
 	end
 		
 
-	//camera movement
-	if(select_prompt==false and not btn(❎))then
-		if(btn(⬆️) and camy>0) then
-			camy-=2
+	--camera movement
+	if(select_prompt == false and not btn(❎)) then
+		if(btn(⬆️) and camy > 0) then
+			camy -= 2
 			sfx(62)
 		end
-		if(btn(⬇️) and camy<20) then
-			camy+=2
+		if(btn(⬇️) and camy < 20) then
+			camy += 2
 			sfx(62)
 		end
-		if(btn(⬅️) and camx>0) then
-			camx-=2
+		if(btn(⬅️) and camx > 0) then
+			camx -= 2
 			sfx(62)
 		end
-		if(btn(➡️) and camx<144) then
-			camx+=2
+		if(btn(➡️) and camx < 144) then
+			camx += 2
 			sfx(62)
 		end
 	end
 	
-	if(camx<0)camx=0
-	if(camx>144)camx=144
-	if(camy<0)camy=0
-	if(camy>20)camy=20
-	camera(camx,camy)
+	if(camx < 0)camx = 0
+	if(camx > 144)camx = 144
+	if(camy < 0)camy = 0
+	if(camy > 20)camy = 20
+	camera(camx, camy)
 	
 end
 
 function draw_game()
-	map(0,0,0,0,35,20)
+	map(0, 0, 0, 0, 35, 20)
 	
-	//ui
+	--ui
 	
-		//backgrounds
-	rectfill(0+camx,116+camy,128+camx,128+camy,1)
-	rectfill(0+camx,0+camy,128+camx,4+camy,1)
+	--backgrounds
+	rectfill(0 + camx, 116 + camy, 128 + camx, 128 + camy, 1)
+	rectfill(0 + camx, 0 + camy, 128 + camx, 4 + camy, 1)
 	
-		//selected city
+	--selected city
 	color(12)
-	print(">"..cities[slct][3],0+camx,122+camy)
+	print(">"..cities[slct][3], 0 + camx, 122 + camy)
 	
-	spr(23,cities[slct][1]*8,cities[slct][2]*8)
+	spr(23, cities[slct][1] * 8, cities[slct][2] * 8)
 	
-		//button controls
+	--button controls
 	color(6)
-	if(select_prompt and choose)then print("⬅️➡️:change\n  ❎:select",85+camx,116+camy)
-	elseif(select_prompt and not choose)then print("          ⬅️➡️:change\n  🅾️:cancel ❎:select",45+camx,116+camy)
-	else print("❎+⬅️➡️:change\n       🅾️:menu",73+camx,116+camy) end
+	if(select_prompt and choose) then print("⬅️➡️:change\n  ❎:select", 85 + camx, 116 + camy)
+	elseif(select_prompt and not choose) then print("          ⬅️➡️:change\n  🅾️:cancel ❎:select", 45 + camx, 116 + camy)
+	else print("❎+⬅️➡️:change\n       🅾️:menu", 73 + camx, 116 + camy) end
 
-		//information
-	if not(select_prompt)then 
-		color(12-(5-game_data.defcon))
-		print("\14defcon "..game_data.defcon,0+camx,0+camy)
-		color(11)
-		print("pop.: "..pop[slct].."MIL",0+camx,116+camy)
-		if(game_data.turn==1)then color(12)
-		else color(8) end
-		print("p"..game_data.turn,120+camx,0+camy)
+	--information
+	color(11)
+	print("pop.: "..pop[slct].."MIL", 0 + camx, 116 + camy)
+	if(game_data.turn == 1) then color(12)
+	else color(8) end
+	print("p"..game_data.turn, 120 + camx, 0 + camy)
+
+	if not(select_prompt) then 
+		color(12 - (5 - game_data.defcon))
+		print("\14defcon "..game_data.defcon, 0 + camx, 0 + camy)
 		
-		//select prompts
-	elseif(choose)then
+	--select prompts
+	elseif(choose) then
 		color(8)
-		print("choose starting city",0+camx,0+camy)
+		print("choose starting city", 0 + camx, 0 + camy)
 		color(11)
-		print("pop.: "..cities[slct][4].."MIL",0+camx,116+camy)
-		if(game_data.turn==1)then color(12)
+		print("pop.: "..cities[slct][4].."MIL", 0 + camx, 116 + camy)
+		if(game_data.turn == 1) then color(12)
 		else color(8) end
-		print("p"..game_data.turn,120+camx,0+camy)
+		print("p"..game_data.turn, 120 + camx, 0 + camy)
 	else
-		if(select_mode==1)then
-			color(8)
-			print("choose silo build location",0+camx,0+camy)
-		elseif(select_mode==2)then
-			color(8)
-			print("choose base build location",0+camx,0+camy)
-		elseif(select_mode==3)then
-			color(8)
-			print("choose radar build location",0+camx,0+camy)
+		color(8)
+		if(select_mode == 1) then
+			print("choose silo build location", 0 + camx, 0 + camy)
+		elseif(select_mode == 2) then
+			print("choose base build location", 0 + camx, 0 + camy)
+		elseif(select_mode == 3) then
+			print("choose radar build location", 0 + camx, 0 + camy)
+		elseif(select_mode == 4) then
+			print("choose a city to claim", 0 + camx, 0 + camy)
 		end
 	end
 	
-		//error messages
-	if(select_mode>0 and select_mode<4)then
-		if not(check_table_contains(pdat.ctrl,slct))then
-			print("\#8\f0must be a city you control\*z ",0+camx,116+camy)
+	--error messages
+	if(select_mode > 0 and select_mode < 4) then
+		if not(check_table_contains(pdat.ctrl, slct)) then
+			print("\#8\f0must be a city you control\*z ", 0 + camx, 110 + camy)
 		end
-		if(check_table_contains(pdat.silos,slct)
-		or check_table_contains(pdat.bases,slct)
-		or check_table_contains(pdat.radars,slct))then
-			print("\#8\f0only one structure per city\*z ",0+camx,116+camy)
+		if(check_table_contains(pdat.silos, slct)
+		or check_table_contains(pdat.bases, slct)
+		or check_table_contains(pdat.radars, slct)) then
+			print("\#8\f0only one structure per city\*z ", 0 + camx, 110 + camy)
 		end
 	end
-	if(choose)then
-		if (check_table_contains(p1_data.ctrl,slct) or check_table_contains(p2_data.ctrl,slct))then
-			print("\#8\f0already claimed\*z ",0+camx,116+camy)
+	if(choose or select_mode == 4) then
+		if(check_table_contains(p1_data.ctrl, slct) or check_table_contains(p2_data.ctrl, slct)) then
+			print("\#8\f0already claimed\*z ", 0 + camx, 110 + camy)
 		end
 	end
 	
-		//alerts
-	if(supp_data.alert)then
-		supp_data.anim_tick+=1
-		if(supp_data.anim_tick<30)then
-			rectfill(24+camx,58+camy,104+camx,70+camy,0)
-			rect(25+camx,59+camy,103+camx,69+camy,supp_data.alert_color)
-			print(supp_data.alert_mes,64-#supp_data.alert_mes*2+camx,62+camy)
+	--alerts
+	if(supp_data.alert) then
+		supp_data.anim_tick += 1
+		if(supp_data.anim_tick < 30) then
+			rectfill(24 + camx, 58 + camy, 104 + camx, 70 + camy, 0)
+			rect(25 + camx, 59 + camy, 103 + camx, 69 + camy, supp_data.alert_color)
+			print(supp_data.alert_mes, 64 - #supp_data.alert_mes * 2 + camx, 62 + camy)
 		else
-			supp_data.anim_tick=0
-			supp_data.alert=false
+			supp_data.anim_tick = 0
+			supp_data.alert = false
 		end
 	end
 end
 -->8
 --menu
 function init_menu()
-	menuselected=1
+	menuselected = 1
 end
 
 function update_menu()
-	if(btnp(🅾️))then
+	if(btnp(🅾️)) then
 		sfx(59)
-		game_state=1
+		game_state = 1
 	end
 end
 
 function draw_menu()
-
-	local menuitems={
-		{"build silo",5},
-		{"build base",5},
-		{"build radar",5},
-		{"claim city",5},
-		{"battle for city",4},
-		{"launch nuke",3},
-		{"skip turn",5}
+	local menuitems = {
+		{"build silo", 5},
+		{"build base", 5},
+		{"build radar", 5},
+		{"claim city", 5},
+		{"attack city", 4},
+		{"launch nuke", 3},
+		{"skip turn", 5}
 	}
 
-	local totalpop=0
+	local totalpop = 0
 
-	for i=1,count(pdat.ctrl) do
-		totalpop+=pop[pdat.ctrl[i]]
+	for i = 1, count(pdat.ctrl) do
+		totalpop += pop[pdat.ctrl[i]]
 	end
 	
-	camera(0,0)
+	camera(0, 0)
 	print("\fbtotal pop.: "..
 	totalpop..
 	"MIL\n\fcnO. controlled cities: "..
@@ -457,10 +459,10 @@ function draw_menu()
 	count(pdat.bases)..
 	"\n\fbnO. radars: "..
 	count(pdat.radars)..
-	"\n\f7\*z…",0,0)
+	"\n\f7\*z…", 0, 0)
 	
-	for i=1,count(menuitems) do
-		if(menuselected==i) then 
+	for i = 1, count(menuitems) do
+		if(menuselected == i) then 
 			color(9)
 			print("◆"..menuitems[i][1])
 		else 
@@ -473,29 +475,32 @@ function draw_menu()
 	"\n\f9defcon: "..game_data.defcon..
 	"\n\fanuke cooldown: "..game_data.cooldown.." TURNS"..
 	"\n\f6❎:select - 🅾️:back"
-	,0,96)
+	, 0, 96)
 	
-	if(btnp(⬆️) and menuselected>1)then
-		menuselected-=1
+	if(btnp(⬆️) and menuselected > 1) then
+		menuselected -= 1
 		sfx(58)
 	end
-	if(btnp(⬇️) and menuselected<count(menuitems))then
-		menuselected+=1
+	if(btnp(⬇️) and menuselected < count(menuitems)) then
+		menuselected += 1
 		sfx(58)
 	end
-	if(menuitems[menuselected][2]<game_data.defcon) then
-		print("\#8\f0defcon must be "..menuitems[menuselected][2].." or lower\*z ",0,96)
+	if(menuitems[menuselected][2] < game_data.defcon) then
+		print("\#8\f0defcon must be "..menuitems[menuselected][2].." or lower\*z ", 0, 96)
 	end
 	
-	if(btnp(❎))then
-		sfx(61)
-		if(menuitems[menuselected][1]=="skip turn")then
-			game_state=1
+	if(btnp(❎)) then
+		if(menuitems[menuselected][1] == "skip turn") then
+			sfx(61)
+			game_state = 1
 			turn_end(game_data.turn)
+		elseif(menuitems[menuselected][2] >= game_data.defcon) then
+			sfx(61)
+			select_mode = menuselected
+			select_prompt = true
+			game_state = 1
 		else
-			select_mode=menuselected
-			select_prompt=true
-			game_state=1
+			sfx(56)
 		end
 	end
 end
@@ -548,13 +553,13 @@ d3010020106600267010660046700e660026700e6600267010100021001010002100101000210010
 c10908200433304630046300461504614046150461404615046140461504614046150461404615046140461504614046150461404615046140461504614046150461404615046140461504614046150461404615
 c310021f0431000000346153461504410306103061504410306103061504410306103061504410306103061504410306103061504410306103061504410306103061504410306103061504410306103061500000
 911500200001000010000100001000010000100001000010000100001000010000100002000030000200001000010000100001000010000100001000010000100001000010000100001000020000300002000010
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+d30100251c6600e6701c660106701a660266703266002670101000210010100021001010002100101000e1001c6603e6101c660046701a660026701a660326700410010100041001010004100101000e10000000
+d301162410660106701c660106701a660266703266002670101000210010100021001010002100101000e1001c6603b6101c610046701a660026701a660326700410010100041001010004100101000e10000000
+c90108201345011450104500e4502f6102e6102d6102c610070101102007010130200501011020050101102007110111200711011120071101112007110111200711013120071101312007110131200711011120
+d301163010660106701c660106701a660266703266002670101000210010100021001010002100101000e1001c6603b6101c610046701a660026701a660326700410010100041001010004100101000e10000000
+d303000010665106751c645106351a6252662532615026151c6653b6153465530635326150267502665026751c6003b600346003060034600306131a600326000410010100041001010030656341002610000000
+c70720213064326623106230012000120001200012000120001200012000120000000000000000000003c6143e6103e6103e6103e6103e6103e6103e6103e6103e6103e6103e6103e6103e6103e6103c61034615
+c106041a0461404615046140461504614046150461404615046140461504614046150461404615046140461504614046150461404615046140461504614046150461404615046140461504614046150461404615
 001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -612,5 +617,13 @@ __music__
 00 050a4849
 00 0c084849
 00 0c090a49
-02 050a0749
+00 050f4649
+00 060d0c0a
+00 0f0d0c0e
+00 060a050e
+00 05080710
+00 05080711
+00 05074849
+00 0507124b
+02 05135349
 
